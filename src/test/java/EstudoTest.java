@@ -26,7 +26,8 @@ public class EstudoTest {
 
         System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
 
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
+        driver = new EdgeDriver();
 
         driver.manage().window().maximize();
 
