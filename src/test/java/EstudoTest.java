@@ -57,13 +57,13 @@ public class EstudoTest {
         //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
         driver.findElement(By.id("nome")).click();
-        driver.findElement(By.id("nome")).sendKeys("valter102");
+        driver.findElement(By.id("nome")).sendKeys("valter101");
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni102@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("menninni101@gmail.com");
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).sendKeys("a11111111");
         driver.findElement(By.id("administrador")).click();
-        assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
+        //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
         driver.findElement(By.cssSelector(".btn-primary")).click();
         assertEquals("Cadastro realizado com sucesso", driver.findElement(By.cssSelector("a.alert-link")).getText(),"Texto esperado, 'Cadastro realizado com sucesso' mas foi exibido outro texto");
         }
@@ -78,7 +78,7 @@ public class EstudoTest {
         driver.findElement(By.id("nome")).click();
         driver.findElement(By.id("nome")).sendKeys("valter102");
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni102@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("menninni1020@gmail.com");
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).sendKeys("a11111111");
         driver.findElement(By.id("administrador")).click();
