@@ -85,6 +85,7 @@ public class EstudoTest {
         //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
         driver.findElement(By.cssSelector(".btn-primary")).click();
         assertEquals("Este email já está sendo usado", driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText(),"Texto esperado, 'Este email já está sendo usado' mas foi exibido outro texto");
+
     }
 }
 
