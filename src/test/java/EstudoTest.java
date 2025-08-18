@@ -25,16 +25,16 @@ public class EstudoTest {
 
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
-        //System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
-        driver = new ChromeDriver();
-        //driver = new EdgeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
 
     @BeforeEach
     public void padraoCarregamento () {
+        //System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
+        driver = new ChromeDriver();
+        //driver = new EdgeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://front.serverest.dev/login");
     }
 
