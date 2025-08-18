@@ -90,5 +90,18 @@ public class EstudoTest {
         String lTexto2 = driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText();
         assertEquals(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", ""), lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""),"Texto esperado, 'Este email já está sendo usado' mas foi exibido outro texto");
     }
+    //TESTE 3
+    @Test
+    @Order(3)
+    @DisplayName("Teste realizado con login já cadastrado...")
+    public void testLoginCaminhoFeliz() {
+    }
+
+    //TESTE 4
+    @Test
+    @Order(4)
+    @DisplayName("Teste realizado con login não cadastrado...")
+    public void testLoginDadosInvalidos() {
+    }
 }
 
