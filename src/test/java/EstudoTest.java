@@ -3,6 +3,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+//import org.openqa.selenium.firefox.FirefoxDriver;
 //import org.openqa.selenium.edge.EdgeDriver;
 import java.time.Duration;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,9 +23,9 @@ public class EstudoTest {
 
     //ANTES DO TESTE
     @BeforeAll
-
     public static void setUp() {
         WebDriverManager.chromedriver().setup();
+        //WebDriverManager.firefoxdriver().setup();
     }
 
 
@@ -33,6 +34,7 @@ public class EstudoTest {
         //System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
         driver = new ChromeDriver();
         //driver = new EdgeDriver();
+        //driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.get("https://front.serverest.dev/login");
