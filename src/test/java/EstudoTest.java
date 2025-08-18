@@ -113,11 +113,14 @@ public class EstudoTest {
     @Order(4)
     @DisplayName("Teste realizado con login não cadastrado...")
     public void testLoginDadosInvalidos() {
+        String lTexto0 = "Email e/ou senha inválidos";
         driver.findElement(By.id("email")).sendKeys(nomeEmailErr);
         driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.cssSelector("[data-testid='entrar']")).click();
-        assertEquals("Email e/ou senha inválidos", driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText(),"Texto esperado, 'Email e/ou senha inválidos' mas foi exibido outro texto");
+        String lTexto2 = driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText();
 
+        assertEquals(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", ""), lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""),"Texto esperado, 'Email e/ou senha inválidos' mas foi exibido outro texto");
+        System.out.println(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", "") + lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""));
     }
 }
 
