@@ -14,6 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class EstudoTest {
+    String nomeUser =  "menin";
+    String nomeEmail = "menninni3@gmail.com";
+    String nomeEmailErr = "menninnixyz@gmail.com";
+    String textSenha = "a123";
 
     //ATRIBUTOS
 
@@ -24,6 +28,7 @@ public class EstudoTest {
     //ANTES DO TESTE
     @BeforeAll
     public static void setUp() {
+
         WebDriverManager.chromedriver().setup();
         //WebDriverManager.firefoxdriver().setup();
     }
@@ -31,6 +36,7 @@ public class EstudoTest {
 
     @BeforeEach
     public void padraoCarregamento () {
+
         //System.setProperty("webdriver.edge.driver", "src/test/driver/msedgedriver.exe");
         driver = new ChromeDriver();
         //driver = new EdgeDriver();
@@ -57,11 +63,11 @@ public class EstudoTest {
         //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
         driver.findElement(By.id("nome")).click();
-        driver.findElement(By.id("nome")).sendKeys("valter1003");
+        driver.findElement(By.id("nome")).sendKeys(nomeUser);
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni1003@gmail.com");
+        driver.findElement(By.id("email")).sendKeys(nomeEmail);
         driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("a1111");
+        driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.id("administrador")).click();
         //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
         driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -79,11 +85,11 @@ public class EstudoTest {
         //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
         driver.findElement(By.id("nome")).click();
-        driver.findElement(By.id("nome")).sendKeys("valter1003");
+        driver.findElement(By.id("nome")).sendKeys(nomeUser);
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni1003@gmail.com");
+        driver.findElement(By.id("email")).sendKeys(nomeEmail);
         driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("a1111");
+        driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.id("administrador")).click();
      //   assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
         driver.findElement(By.cssSelector(".btn-primary")).click();
@@ -95,8 +101,8 @@ public class EstudoTest {
     @Order(3)
     @DisplayName("Teste realizado con login já cadastrado...")
     public void testLoginCaminhoFeliz() {
-        driver.findElement(By.id("email")).sendKeys("menninni1003@gmail.com");
-        driver.findElement(By.id("password")).sendKeys("a1111");
+        driver.findElement(By.id("email")).sendKeys(nomeEmail);
+        driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.cssSelector("[data-testid='entrar']")).click();
         assertEquals("Este é seu sistema para administrar seu ecommerce.", driver.findElement(By.cssSelector("p.lead")).getText(),"Texto esperado, 'Este é seu sistema para administrar seu ecommerce.' mas foi exibido outro texto");
 
@@ -107,8 +113,8 @@ public class EstudoTest {
     @Order(4)
     @DisplayName("Teste realizado con login não cadastrado...")
     public void testLoginDadosInvalidos() {
-        driver.findElement(By.id("email")).sendKeys("menninni10013@gmail.com");
-        driver.findElement(By.id("password")).sendKeys("123");
+        driver.findElement(By.id("email")).sendKeys(nomeEmailErr);
+        driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.cssSelector("[data-testid='entrar']")).click();
         assertEquals("Email e/ou senha inválidos", driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText(),"Texto esperado, 'Email e/ou senha inválidos' mas foi exibido outro texto");
 
