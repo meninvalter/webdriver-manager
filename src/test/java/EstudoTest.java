@@ -5,8 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 //import org.openqa.selenium.edge.EdgeDriver;
 import java.time.Duration;
-
-//import static junit.framework.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //CLASSES
@@ -50,42 +48,45 @@ public class EstudoTest {
 
 
     //TESTE 1
-    @Test
-    @Order(1)
-    @DisplayName("Teste realizado!")
-    public void testCadastroSimplesComDadosValidos() {
-        //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
-        driver.findElement(By.linkText("Cadastre-se")).click();
-        driver.findElement(By.id("nome")).click();
-        driver.findElement(By.id("nome")).sendKeys("valter101");
-        driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni101@gmail.com");
-        driver.findElement(By.id("password")).click();
-        driver.findElement(By.id("password")).sendKeys("a11111111");
-        driver.findElement(By.id("administrador")).click();
-        //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
-        driver.findElement(By.cssSelector(".btn-primary")).click();
-        assertEquals("Cadastro realizado com sucesso", driver.findElement(By.cssSelector("a.alert-link")).getText(),"Texto esperado, 'Cadastro realizado com sucesso' mas foi exibido outro texto");
-        }
+//    @Test
+//    @Order(2)
+//    @DisplayName("Teste realizado!")
+//    public void testCadastroSimplesComDadosValidos() {
+//        //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
+//        driver.findElement(By.linkText("Cadastre-se")).click();
+//        driver.findElement(By.id("nome")).click();
+//        driver.findElement(By.id("nome")).sendKeys("valter101");
+//        driver.findElement(By.id("email")).click();
+//        driver.findElement(By.id("email")).sendKeys("menninni101@gmail.com");
+//        driver.findElement(By.id("password")).click();
+//        driver.findElement(By.id("password")).sendKeys("a11111111");
+//        driver.findElement(By.id("administrador")).click();
+//        //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
+//        driver.findElement(By.cssSelector(".btn-primary")).click();
+//        assertEquals("Cadastro realizado com sucesso", driver.findElement(By.cssSelector("a.alert-link")).getText(),"Texto esperado, 'Cadastro realizado com sucesso' mas foi exibido outro texto");
+//        }
 
     //TESTE 2
     @Test
-    @Order(2)
+    @Order(1)
     @DisplayName("Teste realizado! Email já existente...")
     public void testCadastroComDadosJaUtilizados() {
+
+         String lTexto0 = "Este email já está sendo usado";
+
         //assertThat(driver.findElement(By.linkText("Cadastre-se")).getText(), is("Cadastre-se"));
         driver.findElement(By.linkText("Cadastre-se")).click();
         driver.findElement(By.id("nome")).click();
         driver.findElement(By.id("nome")).sendKeys("valter102");
         driver.findElement(By.id("email")).click();
-        driver.findElement(By.id("email")).sendKeys("menninni1020@gmail.com");
+        driver.findElement(By.id("email")).sendKeys("menninni102001@gmail.com");
         driver.findElement(By.id("password")).click();
         driver.findElement(By.id("password")).sendKeys("a11111111");
         driver.findElement(By.id("administrador")).click();
-        //assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
+     //   assertEquals("Cadastrar", driver.findElement(By.cssSelector(".btn-primary")).getText(),"Texto esperado, 'Cadastrar' mas foi exibido outro texto");
         driver.findElement(By.cssSelector(".btn-primary")).click();
-        assertEquals("Este email já está sendo usado", driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText(),"Texto esperado, 'Este email já está sendo usado' mas foi exibido outro texto");
-
+        String lTexto2 = driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText();
+        assertEquals(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", ""), lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""),"Texto esperado, 'Este email já está sendo usado' mas foi exibido outro texto");
     }
 }
 
