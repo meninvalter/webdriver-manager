@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class EstudoTest {
     String nomeUser =  "menin";
-    String nomeEmail = "menninni3@gmail.com";
+    String nomeEmail = "menninni4@gmail.com";
     String nomeEmailErr = "menninnixyz@gmail.com";
     String textSenha = "a123";
 
@@ -118,9 +118,8 @@ public class EstudoTest {
         driver.findElement(By.id("password")).sendKeys(textSenha);
         driver.findElement(By.cssSelector("[data-testid='entrar']")).click();
         String lTexto2 = driver.findElement(By.cssSelector("div.alert.alert-secondary.alert-dismissible")).getText();
-
         assertEquals(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", ""), lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""),"Texto esperado, 'Email e/ou senha inválidos' mas foi exibido outro texto");
-        System.out.println(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", "") + lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""));
+        //System.out.println(lTexto0.replaceAll("[^a-zA-Z0-9\\\\s]", "") + lTexto2.replaceAll("[^a-zA-Z0-9\\\\s]", ""));
     }
 }
 
